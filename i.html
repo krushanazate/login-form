@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+    
+
+    .H {
+      color:yellowgreen;
+      box: shadow 10px;
+      ;
+  
+    }
+  
+    .form {
+      text-align: center;
+      border-style: ridge;
+      margin-left: 50%;
+      width: 300px;
+      border-radius: 55px;
+      background-color: white;
+    }
+  
+    .Bsize {
+      width: 200px;
+      height: 30px;
+      text-align: center;
+  
+    }
+  
+    input {
+      outline: unset;
+  
+    }
+  
+    #para1 {
+      margin-top: 0px;
+      color: red;
+      font-size: 12px;
+      display: none;
+    }
+    #para2 {
+      margin-top: 0px;
+      color: red;
+      font-size: 12px;
+      display: none;
+      
+    }
+    #para3 {
+      margin-top: 0px;
+      color: red;
+      font-size: 12px;
+      display: none;
+    }
+    #para4 {
+      margin-top: 0px;
+      color: red;
+      font-size: 12px;
+      display: none;
+    }
+    #para5 {
+      margin-top: 0px;
+      color: red;
+      font-size: 12px;
+      display: none;
+    }
+    #form_element {
+      margin-bottom: 20px;
+    }
+    .table, th, td {
+              border: 2px solid blue;
+              border-collapse: collapse;
+              margin-left: auto;
+              margin-right: auto;
+              width: 300px;
+  
+              padding: 5px;
+               border-radius: 25px;
+              background-color: brown;
+              
+            }
+   
+    
+  </style>
+  
+<body>
+    
+    <body style="background-color:powderblue">
+        <form  onsubmit="return validation()" class="form" action="login.html">
+          <br>
+          <h1 class="H" style="text-align:center;padding-bottom: 8px;">Registration page</h1>
+      
+          <div id="form_element">
+            <input onkeyup="Firstname()" class="Bsize" type="text" placeholder="First Name" id="fname">
+            <p id="para1">Please enter name</p>
+          </div>
+      
+          <div id="form_element">
+            <input onkeyup="lastname()" class="Bsize" type="text" placeholder="Last Name" id="lname">
+            <p id="para2">please enter name</p>
+          </div>
+      
+          <div id="form_element">
+            <input onkeyup="Email()"class="Bsize" type="email" placeholder="Enter Email" id="email">
+            <p id="para3">please enter Email</p>
+          </div>
+      
+          <div id="form_element">
+            <input onkeyup="Mobile()" class="Bsize" type="number" placeholder="Enter your Number mobile" id="mobile">
+            <p id="para4">please enter mobile number</p>
+      
+          </div>
+      
+          <div id="form_element">
+            <input onkeyup="Password()" class="Bsize" type="password" placeholder="Enter your password" id="password">
+            <p id="para5">please enter Password</p>
+      
+          </div>
+      
+          
+            
+            <button onclick="return validateform()"><login class="html"></login>submit</button>
+          </div>
+      
+        
+   
+    
+</body>
+<script>function Firstname(){
+  let fname=document.getElementById("fname").value;
+   if(fname.length<5){ 
+     document.getElementById("fname").style.border="1px solid red";
+     document.getElementById("para1").style.display="block";
+     return false;
+
+    }
+    else{
+       document.getElementById("fname").style.border="1px solid green";
+       document.getElementById("para1").style.display="none";
+       return true;
+    }
+}
+
+/*--- Last Name --------*/
+
+function lastname(){
+   let lname=document.getElementById("lname").value;
+    if(lname.length<5){ 
+      document.getElementById("lname").style.border="1px solid red";
+      document.getElementById("para2").style.display="block";
+      return false;
+   }
+   else{
+      document.getElementById("lname").style.border="1px solid green";
+      document.getElementById("para2").style.display="none";
+      return true;
+   }
+}
+
+/*---  Email --------*/
+
+function Email() 
+{
+   let email=document.getElementById("email").value;
+  const re =
+   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+ if (email === "" || email === "undefined") {
+   document.getElementById("email").style.border="1px solid red";
+   document.getElementById("para3").style.display="block";
+   return false;
+ }
+  
+   if (re.test(String(email).toLowerCase())) {
+       document.getElementById("email").style.border = "1px solid green";
+       document.getElementById("para3").style.display = "none";
+       return true;
+   }
+   else {
+       document.getElementById("email").style.border = "1px solid red";
+       document.getElementById("para3").style.display = "block";
+       return false;
+   }
+
+ 
+}
+
+/*---   Mobile Name--------*/
+
+function Mobile(){
+   let mobile=document.getElementById("mobile").value;
+    if(mobile.length==10){ 
+       document.getElementById("mobile").style.border="1px solid green";
+       document.getElementById("para4").style.display="none";
+       return true;
+
+   }
+   else{
+      document.getElementById("mobile").style.border="1px solid red";
+      document.getElementById("para4").style.display="block";
+      return false
+   }
+}
+
+/*----- password -----*/
+
+function Password() {
+   let password=document.getElementById("password").value;
+
+   const re = /^(?=.*\d)(?=.*[A-Z]).{8,14}$/
+   if (password === '' || password === 'undefined') {
+       document.getElementById("password").style.border="1px solid red";
+       document.getElementById("para5").style.display="block";
+
+     return false
+   }
+   if(re.test(password)){
+       document.getElementById("password").style.border="1px solid  green";
+       document.getElementById("para5").style.display="none";
+       return true;
+   }
+   else{
+       document.getElementById("password").style.border="1px solid red";
+       document.getElementById("para5").style.display="block";
+       return false;
+   }
+ }
+
+
+ var arr=[];
+ function login(){
+
+     var fname=document.getElementById("fname").value;
+     var email=document.getElementById("email").value;
+     var lname=document.getElementById("lname").value;
+     var mobile=document.getElementById("mobile").value;
+     if(Firstname() && lastname() && Email() && Mobile()){
+
+     arr.push({name:fname,lname:lname,eamil:email,mobile:mobile});
+      output();
+ }
+ else{
+   Firstname();
+   lastname();
+   Email();
+   Mobile();
+   Password();
+   return false;
+ }
+}
+function output(){
+ var tbodyHTML=` `;
+for(i=0;i<arr.length;i++){
+   const element=arr[i];
+ tbodyHTML+=`<tr>`;
+ tbodyHTML+=`<td>${element.name}</td>`;
+ tbodyHTML+=`<td>${element.lname}</td>`;
+ tbodyHTML+=`<td>${element.eamil}</td>`;
+ tbodyHTML+=`<td>${element.mobile}</td>`;
+ tbodyHTML+=`<td> <button type="button" id="submit" onclick="actionRemove(${i})"> remove</button> </td>`;
+ tbodyHTML+=`</tr>`;
+}
+document.getElementById("tbody").innerHTML=tbodyHTML;
+return true;
+
+}
+function actionRemove(i){
+ arr.splice(i,1);
+ output();}
+ let myWindow;
+
+function openWin() {
+  myWindow = window.open("", "", "width=200,height=100");
+}
+ </script>
+</html>
